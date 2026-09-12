@@ -1,0 +1,51 @@
+$font1: "Montserrat", sans-serif;
+$font2: "Source Sans 3", sans-serif;
+
+.h1,
+h1 {
+    @include rfs(36, 48);
+    font-weight: 700;
+    font-family: $font1;
+    margin: 0px;
+    margin-bottom: rem(15);
+}
+
+.h2,
+h2 {    
+    @include rfs(24, 32);
+    font-family: $font1;
+    margin: 0px;
+    margin-bottom: rem(15);
+}
+
+.h3,
+h3 {
+    font-size: 1.17em;
+    font-family: $font1;
+    margin: 0px;
+    margin-bottom: rem(15);
+}
+
+.h4,
+h4 {
+    font-size: 1em;
+    font-family: $font1;
+    margin: 0px;
+    margin-bottom: rem(15);
+}
+
+.h5,
+h5 {
+    font-size: 0.83em;
+    font-family: $font1;
+    margin: 0px;
+    margin-bottom: rem(15);
+}
+
+.h6,
+h6 {
+    font-size: 0.67em;
+    font-family: $font1;
+    margin: 0px;
+    margin-bottom: rem(15);
+}
