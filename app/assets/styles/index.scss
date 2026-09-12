@@ -17,6 +17,10 @@ p {
     @include rfs(14, 16);
 }
 
+img {
+    max-width: 100%;
+}
+
 input,
 select,
 textarea {
