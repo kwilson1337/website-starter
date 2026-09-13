@@ -3,15 +3,15 @@
         <div class="kw-banner__inner">
             <div class="kw-banner__content">
                 <div class="kw-banner__title">
-                    <slot name="title"></slot>
-                </div>                    
+                    <slot name="title"/>
+                </div>
 
                 <div class="kw-banner__button">
-                    <slot name="button"></slot>
+                    <slot name="button"/>
                 </div>
             </div>
         </div>
-    </Section>    
+    </Section>
 </template>
 
 <script setup>

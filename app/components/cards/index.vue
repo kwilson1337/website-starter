@@ -1,7 +1,7 @@
 <template>
     <div class="kw-card">
         <div class="kw-card__inner">
-            <div class="kw-card__img"></div>
+            <div class="kw-card__img"/>
             <div class="kw-card__content">
                 <div class="kw-card__title"><p class="h3">Card title</p></div>
                 <div class="kw-card__desc"><p>Card description</p></div>
@@ -17,7 +17,7 @@
 .kw-card {
     background-color: $white;
     border-radius: $border-radius;
-    
+
     &__inner {
         padding: rem(15);
     }

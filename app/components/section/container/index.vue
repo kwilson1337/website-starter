@@ -6,10 +6,10 @@
 
 <script setup>
 defineProps({
-    isFluid: {
-        type: Boolean,
-        default: false
-    }
+	isFluid: {
+		type: Boolean,
+		default: false
+	}
 })
 </script>
 
@@ -36,7 +36,7 @@ defineProps({
     }
 
     &.--fluid {
-        max-width: 100% !important;        
+        max-width: 100% !important;
     }
 }
 </style>

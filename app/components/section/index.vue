@@ -1,7 +1,7 @@
 <template>
     <section class="kw-section">
         <Container :is-fluid="isFluid">
-            <slot></slot>
+            <slot/>
         </Container>
     </section>
 </template>
@@ -10,9 +10,9 @@
 import Container from './container'
 
 defineProps({
-    isFluid: {
-        type: Boolean,
-        default: false
-    }
+	isFluid: {
+		type: Boolean,
+		default: false
+	}
 })
 </script>

@@ -14,7 +14,7 @@
   <Section>
     <div class="cards">
       <Card v-for="num in 5" :key="num" />
-    </div>    
+    </div>
   </Section>
 </template>
 
@@ -26,7 +26,7 @@ import Navigation from '@/components/navigation'
 </script>
 
 <style lang="scss">
-.cards {      
+.cards {
   @include auto-grid(250px, 15px);
 }
 </style>

@@ -8,26 +8,26 @@
                 <div class="kw-desktop-nav__links">
                     <template v-for="link in navigation" :key="link.title">
                         <div class="kw-desktop-nav__top-link">
-                            <NuxtLink                        
+                            <NuxtLink
                                 :to="link.url"
                             >
                                 {{link.title}}
-                                <span v-if="link.subLinks">^</span>
+                                <MdiIcon v-if="link.subLinks" icon="mdiChevronDown" />
                             </NuxtLink>
                             <div v-if="link.subLinks" class="kw-desktop-nav__sub-link">
-                                <NuxtLink      
-                                    v-for="sub in link.subLinks"                  
+                                <NuxtLink
+                                    v-for="sub in link.subLinks"
                                     :key="sub.title"
                                     :to="sub.url"
                                 >
                                     {{sub.title}}
                                 </NuxtLink>
                             </div>
-                        </div>                        
-                    </template>                    
+                        </div>
+                    </template>
                 </div>
             </div>
-       </Container> 
+       </Container>
     </header>
 </template>
 
@@ -42,6 +42,7 @@ import Container from '@/components/section/container'
     top: 0px;
     background-color: $color2;
     padding: rem(15) 0px;
+    z-index: 100;
 
     @include mq('md') {
         display: none;
@@ -59,37 +60,48 @@ import Container from '@/components/section/container'
 
     &__links {
         display: flex;
-        align-items: center;        
+        align-items: center;
     }
 
-    &__top-link {   
-        position: relative;    
-        
+    &__top-link {
+        position: relative;
+
         a {
             color: $white;
             text-decoration: none;
             font-size: rem(18);
             padding: rem(8) rem(16);
-            transition: $transition;                                           
+            transition: $transition;
+            display: flex;
+            align-items: center;
+        }
+
+        svg {
+            transition: $transition;
+            font-size: rem(24);
         }
 
         &:hover {
             > a {
                 color: $color4;
+
+                svg {
+                    transform: rotate(180deg);
+                }
             }
 
             .kw-desktop-nav__sub-link {
                 opacity: 1;
                 visibility: visible;
             }
-        }    
+        }
 
         &:last-of-type {
             .kw-desktop-nav__sub-link {
                 left: rem(-160);
             }
         }
-        
+
         & + .kw-desktop-nav__top-link {
             margin-left: rem(15);
         }
@@ -97,27 +109,27 @@ import Container from '@/components/section/container'
 
     &__sub-link {
         position: absolute;
-        top: rem(30);
+        top: rem(45);
         width: 100%;
         min-width: rem(250);
         visibility: hidden;
         opacity: 0;
-        transition: $transition;    
+        transition: $transition;
         border-radius: $border-radius;
         overflow: hidden;
-        
+
         a {
             display: block;
             background-color: $color1;
-            color: $color3;     
+            color: $color3;
             transition: $transition;
-            
+
             &:hover {
                 background-color: $color3;
                 color: $color1;
             }
         }
     }
-    
+
 }
 </style>
