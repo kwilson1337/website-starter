@@ -15,7 +15,6 @@
                                 <MdiIcon v-if="link.subLinks" icon="mdiChevronDown" />
                             </NuxtLink>
 
-
                             <RecursiveSubMenu :menu-items="link.subLinks" />                          
                         </div>
                     </template>
