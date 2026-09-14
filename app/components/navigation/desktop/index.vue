@@ -14,15 +14,9 @@
                                 {{link.title}}
                                 <MdiIcon v-if="link.subLinks" icon="mdiChevronDown" />
                             </NuxtLink>
-                            <div v-if="link.subLinks" class="kw-desktop-nav__sub-link">
-                                <NuxtLink
-                                    v-for="sub in link.subLinks"
-                                    :key="sub.title"
-                                    :to="sub.url"
-                                >
-                                    {{sub.title}}
-                                </NuxtLink>
-                            </div>
+
+
+                            <RecursiveSubMenu :menu-items="link.subLinks" />                          
                         </div>
                     </template>
                 </div>
@@ -34,6 +28,7 @@
 <script setup>
 import { navigation, logo } from '../constants'
 import Container from '@/components/section/container'
+import RecursiveSubMenu from './RecursiveSubMenu.vue';
 </script>
 
 <style lang="scss" scoped>
@@ -90,14 +85,14 @@ import Container from '@/components/section/container'
                 }
             }
 
-            .kw-desktop-nav__sub-link {
+            .recusive-sub-menu {
                 opacity: 1;
                 visibility: visible;
             }
         }
 
         &:last-of-type {
-            .kw-desktop-nav__sub-link {
+            .recusive-sub-menu {
                 left: rem(-160);
             }
         }
@@ -105,31 +100,7 @@ import Container from '@/components/section/container'
         & + .kw-desktop-nav__top-link {
             margin-left: rem(15);
         }
-    }
-
-    &__sub-link {
-        position: absolute;
-        top: rem(45);
-        width: 100%;
-        min-width: rem(250);
-        visibility: hidden;
-        opacity: 0;
-        transition: $transition;
-        border-radius: $border-radius;
-        overflow: hidden;
-
-        a {
-            display: block;
-            background-color: $color1;
-            color: $color3;
-            transition: $transition;
-
-            &:hover {
-                background-color: $color3;
-                color: $color1;
-            }
-        }
-    }
+    }  
 
 }
 </style>
