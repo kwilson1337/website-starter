@@ -3,7 +3,9 @@
     <Container>
       <div class="kw-mobile-navigation__inner">
         <div class="kw-mobile-navigation__logo">
-          <img :src="logo.url" :alt="logo.alt">
+          <NuxtLink to="/">
+            <img :src="logo.url" :alt="logo.alt">
+          </NuxtLink>          
         </div>
         <div class="kw-mobile-navigation__action" :class="{ '--active' : menuOpen }">
           <button @click="toggleBurger">

@@ -3,7 +3,9 @@
        <Container>
             <div class="kw-desktop-nav__inner">
                 <div class="kw-desktop-nav__logo">
-                    <img :src="logo.url" :alt="logo.alt">
+                    <NuxtLink to="/">
+                        <img :src="logo.url" :alt="logo.alt">
+                    </NuxtLink>                    
                 </div>
                 <div class="kw-desktop-nav__links">
                     <template v-for="link in navigation" :key="link.title">
