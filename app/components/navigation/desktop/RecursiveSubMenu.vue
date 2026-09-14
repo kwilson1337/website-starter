@@ -1,6 +1,6 @@
 <template>
     <div class="recusive-sub-menu" :class="{ '--is-last': isLastOfType }">
-        <div class="recusive-sub-menu__inner">            
+        <div class="recusive-sub-menu__inner">
             <div
                 v-for="link in menuItems"
                 :key="link.title"
@@ -25,10 +25,10 @@ defineProps({
 		type: Array,
 		default: () => []
 	},
-    isLastOfType: {
-        type: Boolean,
-        default: false
-    }
+	isLastOfType: {
+		type: Boolean,
+		default: false
+	}
 })
 </script>
 
@@ -42,7 +42,7 @@ defineProps({
     opacity: 0;
     transition: $transition;
     border-radius: $border-radius;
-    z-index: 100;   
+    z-index: 100;
 
     a {
         background-color: $color1;
@@ -63,31 +63,30 @@ defineProps({
     }
 
     &__inner {
-        // overflow: hidden;
         border-radius: $border-radius;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     &__sub-link {
-        position: relative; 
-        display: block;     
+        position: relative;
+        display: block;
 
         svg {
             transition: $transition;
             margin-left: rem(5);
         }
-        
+
         > .recusive-sub-menu {
-            top: 0;          
-            left: 100%;      
-            margin-left: 0; 
+            top: 0;
+            left: 100%;
+            margin-left: 0;
             background-color: darken($color1, 5%);
 
             .--is-last & {
                 left: unset;
                 right: 130%;
             }
-        }    
+        }
 
     &:hover {
         > a svg {
