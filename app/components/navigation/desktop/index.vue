@@ -8,7 +8,7 @@
                     </NuxtLink>
                 </div>
                 <div class="kw-desktop-nav__links">
-                    <template v-for="link in navigation" :key="link.title">
+                    <template v-for="(link, index) in navigation" :key="link.title">
                         <div class="kw-desktop-nav__top-link">
                             <NuxtLink
                                 :to="link.url"
@@ -17,7 +17,10 @@
                                 <MdiIcon v-if="link.subLinks" icon="mdiChevronDown" />
                             </NuxtLink>
 
-                            <RecursiveSubMenu :menu-items="link.subLinks" />
+                            <RecursiveSubMenu 
+                                :menu-items="link.subLinks" 
+                                :is-last-of-type="index === navigation.length - 1"
+                            />
                         </div>
                     </template>
                 </div>
@@ -94,9 +97,9 @@ import RecursiveSubMenu from './RecursiveSubMenu.vue';
 
         &:last-of-type {
             .recusive-sub-menu {
-                left: rem(-160);
+                left: rem(-60);
             }
-        }
+        }        
 
         & + .kw-desktop-nav__top-link {
             margin-left: rem(15);
