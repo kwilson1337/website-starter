@@ -5,7 +5,7 @@
         <div class="kw-mobile-navigation__logo">
           <NuxtLink to="/">
             <img :src="logo.url" :alt="logo.alt">
-          </NuxtLink>          
+          </NuxtLink>
         </div>
         <div class="kw-mobile-navigation__action" :class="{ '--active' : menuOpen }">
           <button @click="toggleBurger">
@@ -192,8 +192,8 @@ const toggleSubLink = (title) => {
             text-decoration: none;
             transition: $transition;
 
-            &:hover { 
-                color: $color4; 
+            &:hover {
+                color: $color4;
             }
         }
 
@@ -224,7 +224,7 @@ const toggleSubLink = (title) => {
             a {
                 @include rfs(18, 28);
                 padding: rem(15);
-                background-color: #efefef;                
+                background-color: #efefef;
 
                 &:hover {
                     background-color: $color4;
@@ -264,7 +264,7 @@ const toggleSubLink = (title) => {
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
               opacity 0.25s ease,
               max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  max-height: rem(300); 
+  max-height: rem(300);
   transform-origin: top center;
 }
 

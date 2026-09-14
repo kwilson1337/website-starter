@@ -1,29 +1,30 @@
 <template>
-    <div class="recusive-sub-menu">        
+    <div class="recusive-sub-menu">
         <div class="recusive-sub-menu__inner">
-            <div 
+            <div
                 v-for="link in menuItems"
+                :key="link.title"
                 class="recusive-sub-menu__sub-link"
             >
                 <NuxtLink :to="link.url">
                     {{ link.title }}
                     <MdiIcon v-if="link.subLinks" icon="mdiChevronDown" />
-                </NuxtLink>     
-                            
+                </NuxtLink>
+
                 <template v-if="link.subLinks">
                     <RecursiveSubMenu :menu-items="link.subLinks" />
-                </template>        
-            </div>    
-        </div>          
+                </template>
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup>
-defineProps({  
-    menuItems: {
-        type: Array,
-        default: () => []
-    }
+defineProps({
+	menuItems: {
+		type: Array,
+		default: () => []
+	}
 })
 </script>
 
@@ -36,13 +37,13 @@ defineProps({
     visibility: hidden;
     opacity: 0;
     transition: $transition;
-    border-radius: $border-radius; 
-    z-index: 100;    
+    border-radius: $border-radius;
+    z-index: 100;
 
-    a {        
+    a {
         background-color: $color1;
         color: $color3;
-        transition: $transition;        
+        transition: $transition;
         text-decoration: none;
         font-size: rem(18);
         padding: rem(8) rem(16);
@@ -64,8 +65,8 @@ defineProps({
 
     &__sub-link {
         display: flex;
-        align-items: center;      
-        
+        align-items: center;
+
         svg {
             transition: $transition;
             margin-left: rem(5);
@@ -82,9 +83,9 @@ defineProps({
                 transform: rotate(180deg);
             }
 
-            > .recusive-sub-menu {                                
+            > .recusive-sub-menu {
                 opacity: 1;
-                visibility: visible;                
+                visibility: visible;
             }
         }
     }

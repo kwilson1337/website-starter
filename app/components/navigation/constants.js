@@ -1,31 +1,31 @@
 export const navigation = [
-	{ 
-		title: 'Home', 
-		url: '/', 
-		subLinks: [ 
-			{ 
-				title: 'About', 
-				url: '/about' 
-			}, 
-			{ 
-				title: 'Contact', 
+	{
+		title: 'Home',
+		url: '/',
+		subLinks: [
+			{
+				title: 'About',
+				url: '/about'
+			},
+			{
+				title: 'Contact',
 				url: '/contact',
 				subLinks: [ { title: 'New page', url: '/' } ]
-			} 
-		] 
+			}
+		]
 	},
 	{ title: 'About', url: '/about' },
-	{ 
+	{
 		title: 'Contact',
-		url: '/contact', 
-		subLinks: [ 
-			{ 
-				title: 'About', 
+		url: '/contact',
+		subLinks: [
+			{
+				title: 'About',
 				url: '/about',
 				subLinks: [{ title: 'New', url: '/' }]
-			}, 
-			{ title: 'Home', url: '/' } ] 
-		}
+			},
+			{ title: 'Home', url: '/' } ]
+	}
 ]
 
 export const logo = {
