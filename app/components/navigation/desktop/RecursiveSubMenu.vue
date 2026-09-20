@@ -42,7 +42,7 @@ defineProps({
     opacity: 0;
     transition: $transition;
     border-radius: $border-radius;
-    z-index: 100;    
+    z-index: 100;
 
     a {
         background-color: $color1;
@@ -53,7 +53,7 @@ defineProps({
         padding: rem(8) rem(16);
         display: flex;
         align-items: center;
-        justify-content: space-between;        
+        justify-content: space-between;
 
         &:hover {
             background-color: $color3;
@@ -80,7 +80,7 @@ defineProps({
             right: 100%;
             left: unset;
             margin-left: 0;
-            background-color: darken($color1, 5%);          
+            background-color: darken($color1, 5%);
         }
 
         &:hover,

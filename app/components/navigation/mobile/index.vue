@@ -3,7 +3,7 @@
     <Container>
       <div class="kw-mobile-navigation__inner">
         <div class="kw-mobile-navigation__logo">
-          <NuxtLink @click="toggleBurger" to="/">
+          <NuxtLink to="/" @click="toggleBurger">
             <img :src="logo.url" :alt="logo.alt">
           </NuxtLink>
         </div>
@@ -16,25 +16,25 @@
     </Container>
 
     <Transition name="dropdown">
-      <RecursiveMenu 
+      <RecursiveMenu
         v-if="menuOpen"
         :navigation="navigation"
-        :openMenuTitle="openMenuTitle"
-        @mobileRecursiveMenu:close="resetMenu"    
+        :open-menu-title="openMenuTitle"
+        @mobile-recursive-menu:close="resetMenu"
       />
-    </Transition>  
+    </Transition>
   </header>
-  
 
-  <!-- <FullScreen 
-    :class="{'--active' : menuOpen}" 
-    :navigation="navigation" 
+
+  <!-- <FullScreen
+    :class="{'--active' : menuOpen}"
+    :navigation="navigation"
     :openMenuTitle="openMenuTitle"
-    @fullScreen:toggleSubLinks="toggleSubLink" 
+    @fullScreen:toggleSubLinks="toggleSubLink"
     @fullScreen:resetMenu="resetMenu"
   /> -->
 
-  <div @click="toggleBurger" v-if="menuOpen" class="kw-mobile-navigation__overlay"></div>
+  <div v-if="menuOpen" class="kw-mobile-navigation__overlay" @click="toggleBurger"/>
 </template>
 
 <script setup>
@@ -49,13 +49,13 @@ const openMenuTitle = ref(null)
 const toggleBurger = () => {
 	menuOpen.value = !menuOpen.value
 
-  if(menuOpen.value) {
-    document.querySelector('html').style.overflow = 'hidden' 
-  }
+	if(menuOpen.value) {
+		document.querySelector('html').style.overflow = 'hidden'
+	}
 
 	if(!menuOpen.value) {
 		openMenuTitle.value = null
-    document.querySelector('html').style.overflow = 'unset' 
+		document.querySelector('html').style.overflow = 'unset'
 	}
 }
 
@@ -76,7 +76,7 @@ const toggleSubLink = (title) => {
 <style lang="scss" scoped>
 .kw-mobile-navigation {
     display: none;
-    padding: rem(5) 0px;    
+    padding: rem(5) 0px;
     position: sticky;
     top: 0px;
     background-color: $color2;
@@ -117,7 +117,7 @@ const toggleSubLink = (title) => {
           background-color: $color3;
           border-radius: $border-radius;
           transition: $transition;
-          
+
           & + span { margin-top: rem(5); }
         }
 
@@ -141,7 +141,7 @@ const toggleSubLink = (title) => {
             &:last-of-type { transform: translate(-50%, -50%) rotate(-45deg); }
           }
         }
-    }    
+    }
 
     &__overlay {
       position: fixed;

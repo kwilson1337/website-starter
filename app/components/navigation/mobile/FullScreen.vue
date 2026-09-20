@@ -1,60 +1,60 @@
-<template>     
-    <div 
+<template>
+    <div
         class="kw-mobile-navigation-full-screen"
         role="navigation"
         aria-label="Main Mobile Navigation"
-    > 
-        <Container> 
-            <div class="kw-mobile-navigation-full-screen__links"> 
-                <div 
-                    v-for="link in navigation" 
-                    :key="link.title" 
-                    class="kw-mobile-navigation-full-screen__link" 
-                    :class="{'--sub-active' : openMenuTitle === link.title}" 
-                > 
-                    <div class="kw-mobile-navigation-full-screen__link-row"> 
-                        <NuxtLink 
-                            :class="{'--has-children' : link.subLinks}" 
-                            :to="link.url" 
+    >
+        <Container>
+            <div class="kw-mobile-navigation-full-screen__links">
+                <div
+                    v-for="link in navigation"
+                    :key="link.title"
+                    class="kw-mobile-navigation-full-screen__link"
+                    :class="{'--sub-active' : openMenuTitle === link.title}"
+                >
+                    <div class="kw-mobile-navigation-full-screen__link-row">
+                        <NuxtLink
+                            :class="{'--has-children' : link.subLinks}"
+                            :to="link.url"
                             @click="resetMenu"
-                        > 
-                            {{ link.title }} 
-                        </NuxtLink> 
-                                             
+                        >
+                            {{ link.title }}
+                        </NuxtLink>
+
                         <button
                             v-if="link.subLinks"
-                            @click="toggleSubLink(link.title)"
                             :aria-expanded="openMenuTitle === link.title ? 'true' : 'false'"
                             :aria-controls="`fullscreen-submenu-${cleanId(link.title)}`"
                             :aria-label="`Toggle ${link.title} sub-menu`"
                             type="button"
                             class="kw-mobile-navigation-full-screen__toggle-btn"
-                        >                            
-                            <MdiIcon icon="mdiChevronDown" aria-hidden="true" /> 
+                            @click="toggleSubLink(link.title)"
+                        >
+                            <MdiIcon icon="mdiChevronDown" aria-hidden="true" />
                         </button>
-                    </div> 
-                    
-                    <Transition name="dropdown">                        
-                        <div 
-                            v-if="link.subLinks && openMenuTitle === link.title" 
+                    </div>
+
+                    <Transition name="dropdown">
+                        <div
+                            v-if="link.subLinks && openMenuTitle === link.title"
                             :id="`fullscreen-submenu-${cleanId(link.title)}`"
                             class="kw-mobile-navigation-full-screen__sub-links"
-                        > 
-                            <div 
-                                v-for="sub in link.subLinks" 
-                                :key="sub.title" 
+                        >
+                            <div
+                                v-for="sub in link.subLinks"
+                                :key="sub.title"
                                 class="kw-mobile-navigation-full-screen__link --sub"
-                            > 
-                                <NuxtLink :to="sub.url" @click="resetMenu"> 
-                                    {{ sub.title }} 
-                                </NuxtLink> 
-                            </div> 
-                        </div> 
-                    </Transition> 
-                </div> 
-            </div> 
-        </Container> 
-    </div> 
+                            >
+                                <NuxtLink :to="sub.url" @click="resetMenu">
+                                    {{ sub.title }}
+                                </NuxtLink>
+                            </div>
+                        </div>
+                    </Transition>
+                </div>
+            </div>
+        </Container>
+    </div>
 </template>
 
 
@@ -63,23 +63,23 @@ import Container from '@/components/section/container'
 
 const emits = defineEmits(['fullScreen:toggleSubLinks', 'fullScreen:resetMenu'])
 defineProps({
-    navigation: {
-        type: Array,
-        default: () => []
-    },
-    openMenuTitle: {
-        type: String,
-        default: ''
-    }
+	navigation: {
+		type: Array,
+		default: () => []
+	},
+	openMenuTitle: {
+		type: String,
+		default: ''
+	}
 })
 
 const cleanId = (str) => str.replace(/\s+/g, '-').toLowerCase()
 const toggleSubLink = (title) => {
-    emits('fullScreen:toggleSubLinks', title)
+	emits('fullScreen:toggleSubLinks', title)
 }
 
 const resetMenu = () => {
-    emits('fullScreen:resetMenu')
+	emits('fullScreen:resetMenu')
 }
 </script>
 
@@ -118,7 +118,7 @@ const resetMenu = () => {
         align-items: center;
         justify-content: center;
         background-color: transparent;
-        
+
         svg {
             transition: $transition;
             color: $color3;
@@ -143,7 +143,7 @@ const resetMenu = () => {
         svg {
             transition: $transition;
             color: $color3;
-            font-size: rem(24);            
+            font-size: rem(24);
         }
 
         & + .kw-mobile-navigation-full-screen__link {
