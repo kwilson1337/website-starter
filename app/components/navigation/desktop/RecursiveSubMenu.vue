@@ -37,12 +37,12 @@ defineProps({
     position: absolute;
     top: 100%;
     left: 0;
-    min-width: rem(100);
+    min-width: rem(150);
     visibility: hidden;
     opacity: 0;
     transition: $transition;
     border-radius: $border-radius;
-    z-index: 100;
+    z-index: 100;    
 
     a {
         background-color: $color1;
@@ -53,8 +53,7 @@ defineProps({
         padding: rem(8) rem(16);
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        width: 100%;
+        justify-content: space-between;        
 
         &:hover {
             background-color: $color3;
@@ -78,26 +77,23 @@ defineProps({
 
         > .recusive-sub-menu {
             top: 0;
-            left: 100%;
+            right: 100%;
+            left: unset;
             margin-left: 0;
-            background-color: darken($color1, 5%);
+            background-color: darken($color1, 5%);          
+        }
 
-            .--is-last & {
-                left: unset;
-                right: 130%;
+        &:hover,
+        &:focus-within {
+            > a svg {
+                transform: rotate(90deg);
+            }
+
+            > .recusive-sub-menu {
+                opacity: 1;
+                visibility: visible;
             }
         }
-
-    &:hover {
-        > a svg {
-            transform: rotate(-90deg);
-        }
-
-        > .recusive-sub-menu {
-            opacity: 1;
-            visibility: visible;
-        }
-    }
     }
 }
 </style>

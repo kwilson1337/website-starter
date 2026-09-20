@@ -1,6 +1,6 @@
 <template>
     <header class="kw-desktop-nav">
-       <Container>
+       <Container class="kw-desktop-nav__container">
             <div class="kw-desktop-nav__inner">
                 <div class="kw-desktop-nav__logo">
                     <NuxtLink to="/">
@@ -47,6 +47,10 @@ import RecursiveSubMenu from './RecursiveSubMenu.vue';
         display: none;
     }
 
+    &__container {
+        position: relative;
+    }
+
     &__inner {
         display: flex;
         align-items: center;
@@ -80,7 +84,8 @@ import RecursiveSubMenu from './RecursiveSubMenu.vue';
             font-size: rem(24);
         }
 
-        &:hover {
+        &:hover,
+        &:focus-within {
             > a {
                 color: $color4;
 

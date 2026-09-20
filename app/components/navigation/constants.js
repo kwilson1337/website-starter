@@ -10,7 +10,14 @@ export const navigation = [
 			{
 				title: 'Contact',
 				url: '/contact',
-				subLinks: [ { title: 'New page', url: '/' } ]
+				subLinks: [ 
+					{ title: 'New page', url: '/' }, 
+					{ 
+						title: 'Sub Link', 
+						url: '/' ,
+						subLinks: [{ title: 'New page', url: '/' }, { title: 'New page', url: '/' }, { title: 'New page', url: '/' }]
+					}
+				]
 			}
 		]
 	},
@@ -22,7 +29,16 @@ export const navigation = [
 			{
 				title: 'About',
 				url: '/about',
-				subLinks: [{ title: 'New', url: '/' }]
+				subLinks: [ 
+					{ title: 'New page', url: '/' },
+					{ title: 'New page', url: '/' },
+					{ title: 'New page', url: '/' },
+					{ 
+						title: 'Sub Link', 
+						url: '/' ,
+						subLinks: [{ title: 'New page', url: '/' }, { title: 'New page', url: '/' }, { title: 'New page', url: '/' }]
+					}
+				]
 			},
 			{ title: 'Home', url: '/' } ]
 	}
