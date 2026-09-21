@@ -101,6 +101,7 @@ const toggleSubLink = (title) => {
             color: $white;
             text-decoration: none;
             padding: rem(15);
+            flex: 1;
         }
 
         button {

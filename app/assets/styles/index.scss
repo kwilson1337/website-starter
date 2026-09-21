@@ -6,7 +6,8 @@ body {
     @include rfs(14, 16);
 }
 
-section {    
+section,
+.section {    
     @include responsive-styles('padding-top',40, 60);
     @include responsive-styles('padding-bottom',40, 60);
 }

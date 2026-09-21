@@ -4,7 +4,7 @@
       <div class="kw-mobile-navigation__inner">
         <div class="kw-mobile-navigation__logo">
           <NuxtLink to="/" @click="toggleBurger">
-            <img :src="logo.url" :alt="logo.alt">
+            <img :src="constants.websiteLogo().url" :alt="constants.websiteLogo().alt">
           </NuxtLink>
         </div>
         <div class="kw-mobile-navigation__action" :class="{ '--active' : menuOpen }">
@@ -18,7 +18,7 @@
     <Transition name="dropdown">
       <RecursiveMenu
         v-if="menuOpen"
-        :navigation="navigation"
+        :navigation="constants.websiteNavigation()"
         :open-menu-title="openMenuTitle"
         @mobile-recursive-menu:close="resetMenu"
       />
@@ -28,7 +28,7 @@
 
   <!-- <FullScreen
     :class="{'--active' : menuOpen}"
-    :navigation="navigation"
+    :navigation="constants.websiteNavigation()"
     :openMenuTitle="openMenuTitle"
     @fullScreen:toggleSubLinks="toggleSubLink"
     @fullScreen:resetMenu="resetMenu"
@@ -39,9 +39,11 @@
 
 <script setup>
 import { ref } from 'vue'
-import { navigation, logo } from '../constants'
 import Container from '@/components/section/container'
 import RecursiveMenu from './RecursiveMenu.vue'
+import { useConstants } from '@/composables/useConstants.js';
+
+const constants = useConstants()
 
 const menuOpen = ref(false)
 const openMenuTitle = ref(null)
@@ -64,13 +66,13 @@ const resetMenu = () => {
 	openMenuTitle.value = null
 }
 
-const toggleSubLink = (title) => {
-	if (openMenuTitle.value === title) {
-		openMenuTitle.value = null
-	} else {
-		openMenuTitle.value = title
-	}
-}
+// const toggleSubLink = (title) => {
+// 	if (openMenuTitle.value === title) {
+// 		openMenuTitle.value = null
+// 	} else {
+// 		openMenuTitle.value = title
+// 	}
+// }
 </script>
 
 <style lang="scss" scoped>

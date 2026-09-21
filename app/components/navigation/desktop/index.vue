@@ -4,11 +4,11 @@
             <div class="kw-desktop-nav__inner">
                 <div class="kw-desktop-nav__logo">
                     <NuxtLink to="/">
-                        <img :src="logo.url" :alt="logo.alt">
+                        <img :src="constants.websiteLogo().url" :alt="constants.websiteLogo().alt">
                     </NuxtLink>
                 </div>
                 <div class="kw-desktop-nav__links">
-                    <template v-for="(link, index) in navigation" :key="link.title">
+                    <template v-for="(link, index) in constants.websiteNavigation()" :key="link.title">
                         <div class="kw-desktop-nav__top-link">
                             <NuxtLink
                                 :to="link.url"
@@ -19,7 +19,7 @@
 
                             <RecursiveSubMenu
                                 :menu-items="link.subLinks"
-                                :is-last-of-type="index === navigation.length - 1"
+                                :is-last-of-type="index === constants.websiteNavigation().length - 1"
                             />
                         </div>
                     </template>
@@ -30,9 +30,11 @@
 </template>
 
 <script setup>
-import { navigation, logo } from '../constants'
 import Container from '@/components/section/container'
 import RecursiveSubMenu from './RecursiveSubMenu.vue';
+import { useConstants } from '@/composables/useConstants.js';
+
+const constants = useConstants()
 </script>
 
 <style lang="scss" scoped>
