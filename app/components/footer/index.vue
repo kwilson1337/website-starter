@@ -51,6 +51,14 @@ const constants = useConstants()
 
     &__col {
 
+        &:deep(a) {
+            color: $white;
+
+            &:hover {
+                color: $color4;
+            }
+        }
+
         h4 {
             margin: 0px;
         }

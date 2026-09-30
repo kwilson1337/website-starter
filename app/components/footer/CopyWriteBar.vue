@@ -32,5 +32,9 @@ const currentYear = new Date().getFullYear();
     svg {
         color: red;
     }
+
+    a {
+        color: $white;
+    }
 }
 </style>

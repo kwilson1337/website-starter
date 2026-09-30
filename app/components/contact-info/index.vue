@@ -39,7 +39,7 @@ const componentsMap = {
 
         &:deep(a) {            
             align-items: center;
-            display: flex;
+            display: inline-flex;
             gap: rem(5);
         }
     }

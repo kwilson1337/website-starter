@@ -21,6 +21,13 @@
 import Card from '@/components/cards'
 import Banner from '@/components/banner'
 import Section from '@/components/section'
+
+useHead({
+  title: 'My home page',
+  meta: [
+    { name: 'description', content: 'My amazing site.' },
+  ],
+})
 </script>
 
 <style lang="scss">
