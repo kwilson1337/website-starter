@@ -23,7 +23,7 @@ export const useSendEmail = () => {
 		try {
 			await transporter.sendMail({
 				subject: `New inquiry from ${firstName} ${lastName}`,
-				from: `contact.deeplydesigns.io`,
+				from: 'New Submission <hello@contact.deeplydesigns.io>',
 				to: 'kylejaywilson123@gmail.com',
 				replyTo: email,
 				html: `
