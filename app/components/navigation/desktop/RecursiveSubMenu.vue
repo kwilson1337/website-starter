@@ -70,6 +70,20 @@ defineProps({
         position: relative;
         display: block;
 
+        &:first-of-type {
+            a {
+                border-top-left-radius: 4px;
+                border-top-right-radius: 4px;
+            }
+        }
+
+        &:last-of-type {
+            a {
+                border-bottom-left-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+        }
+
         svg {
             transition: $transition;
             margin-left: rem(5);
