@@ -20,15 +20,22 @@
                 </div>
                 <div class="kw-footer__col --contact">
                     <h4>Contact Us</h4>
+                    <ContactInfo />
+                    <Socials />
                 </div>
             </div>
-        </Container>
+        </Container>        
     </footer>
+
+    <CopyWriteBar />
 </template>
 
 <script setup>
 import Container from '@/components/section/container'
 import { useConstants } from '@/composables/useConstants'
+import ContactInfo from '@/components/contact-info'
+import Socials from '@/components/socials'
+import CopyWriteBar from './CopyWriteBar.vue'
 
 const constants = useConstants()
 </script>
@@ -44,6 +51,10 @@ const constants = useConstants()
 
     &__col {
 
+        h4 {
+            margin: 0px;
+        }
+
         &.--logo {
             max-width: rem(250);
         }
@@ -56,13 +67,14 @@ const constants = useConstants()
 
                 li + li {
                     margin-top: rem(15);
-                }
-
-                a {
-                    color: $white;
-                    text-decoration: none;
-                }
+                }                
             }
+        }
+
+        &.--contact {
+            display: flex;
+            flex-direction: column;
+            gap: rem(15);
         }
     }
 }

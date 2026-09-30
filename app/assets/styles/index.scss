@@ -52,3 +52,13 @@ textarea {
   max-height: 0;
   transform: scaleY(0.9);
 }
+
+a:not(.kw-button) {
+    text-decoration: none;
+    color: $white;
+    transition: $transition;
+
+    &:hover {
+        color: $color2;
+    }
+}
