@@ -3,6 +3,18 @@
         <div class="kw-contact-form__inner">
             <form ref="contactForm">
                 <div class="kw-contact-form__form-content">
+                    <div class="kw-contact-form__hp" aria-hidden="true">
+                        <label for="honey"/>
+                        <input
+                            id="honey"
+                            v-model="formFields.honey"
+                            name="honey"
+                            type="text"
+                            tabindex="-1"
+                            autocomplete="off"
+                        >
+                    </div>
+
                     <div class="kw-contact-form__row">
                         <div class="kw-contact-form__input-container">
                             <input
@@ -71,7 +83,7 @@
                             <LoadingAnimation />
                         </div>
 
-                        <p @click="responseMessage = ''" v-if="responseMessage">{{ responseMessage }}</p>
+                        <p v-if="responseMessage" @click="responseMessage = ''">{{ responseMessage }}</p>
                     </div>
                 </div>
             </form>
@@ -86,7 +98,8 @@ const formFields = ref({
 	firstName: '',
 	lastName: '',
 	email: '',
-	details: ''
+	details: '',
+	honey: ''
 })
 
 const isLoading = ref(false)
@@ -103,6 +116,7 @@ const disableSubmit = computed(() => {
 
 const sendMail = async () => {
 	if(!contactForm?.value.checkValidity()) return
+	if(formFields.value.honey) return
 
 	try {
 		responseMessage.value = ''
@@ -114,7 +128,8 @@ const sendMail = async () => {
 				firstName: formFields.value.firstName,
 				lastName: formFields.value.lastName,
 				details: formFields.value.details,
-				email: formFields.value.email
+				email: formFields.value.email,
+				honeypot: formFields.value.honey
 			},
 		})
 
@@ -128,12 +143,25 @@ const sendMail = async () => {
 		formFields.value.lastName = ''
 		formFields.value.email = ''
 		formFields.value.details = ''
+		formFields.value.honey = ''
 	}
 }
 </script>
 
 <style lang="scss" scoped>
 .kw-contact-form {
+
+    // Visually hidden honeypot. Avoid display:none or visibility:hidden,
+    // since some bots skip fields hidden that way.
+    &__hp {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        opacity: 0;
+        pointer-events: none;
+    }
 
     &__row {
         display: flex;

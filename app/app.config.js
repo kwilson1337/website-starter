@@ -7,9 +7,9 @@ export default defineAppConfig({
 		hours: 'Mon-Fri, 9am - 5pm'
 	},
 	socials: {
-		instagram: 'instagram.com',
-		facebook: 'facebook.com',
-		linkedin: 'linkedin.com'
+		instagram: '',
+		facebook: '',
+		linkedin: ''
 	},
 	website: {
 		logo: {

@@ -2,9 +2,9 @@
 
 <script setup>
 useHead({
-  title: 'About',
-  meta: [
-    { name: 'description', content: 'My about page' },
-  ],
+	title: 'About',
+	meta: [
+		{ name: 'description', content: 'My about page' },
+	],
 })
 </script>

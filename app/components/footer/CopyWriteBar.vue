@@ -7,7 +7,7 @@
                 </div>
                 <div class="kw-copy-write-bar__col --right">
                     Made with <MdiIcon icon="mdiHeart" /> by <NuxtLink target="_blank" to="https://deeplydesigns.io/">DeeplyDesigns</NuxtLink>
-                </div>                
+                </div>
             </div>
         </Container>
     </div>

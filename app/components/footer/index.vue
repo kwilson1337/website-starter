@@ -24,7 +24,7 @@
                     <Socials />
                 </div>
             </div>
-        </Container>        
+        </Container>
     </footer>
 
     <CopyWriteBar />
@@ -75,7 +75,7 @@ const constants = useConstants()
 
                 li + li {
                     margin-top: rem(15);
-                }                
+                }
             }
         }
 

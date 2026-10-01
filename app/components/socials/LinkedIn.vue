@@ -2,7 +2,7 @@
     <div class="kw-socials --linkedin">
         <div class="kw-socials__inner">
             <NuxtLink :to="`${constants.useSocials().linkedin}`" target="_blank">
-                <MdiIcon icon="mdiLinkedin" />                
+                <MdiIcon icon="mdiLinkedin" />
             </NuxtLink>
         </div>
     </div>

@@ -2,10 +2,15 @@
 export default defineNuxtConfig({
 	compatibilityDate: '2025-07-15',
 	devtools: { enabled: true },
-
+	nitro: {
+		prerender: {
+			crawlLinks: true,
+			routes: ['/']
+		}
+	},
 	app: {
 		head: {
-			title: 'Deeply Designs', 
+			title: 'Deeply Designs',
 			htmlAttrs: {
 				lang: 'en',
 			},
@@ -28,5 +33,5 @@ export default defineNuxtConfig({
 		}
 	},
 
-	modules: ['nuxt-mdi', '@nuxt/eslint']
+	modules: ['nuxt-mdi', '@nuxt/eslint', 'nuxt-schema-org']
 })

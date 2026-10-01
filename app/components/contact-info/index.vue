@@ -1,10 +1,10 @@
 <template>
     <div class="kw-contact-info">
         <div class="kw-contact-info__inner">
-            <component 
-                :is="componentsMap[item]" 
-                v-for="item in toInclude" 
-                :key="item" 
+            <component
+                :is="componentsMap[item]"
+                v-for="item in toInclude"
+                :key="item"
             />
         </div>
     </div>
@@ -16,16 +16,16 @@ import Address from './Address.vue';
 import Email from './Email.vue';
 
 const props = defineProps({
-    toInclude: {
-        type: Array,
-        default: () => ['phone', 'address', 'email']
-    }
+	toInclude: {
+		type: Array,
+		default: () => ['phone', 'address', 'email']
+	}
 })
 
 const componentsMap = {
-  phone: Phone,
-  address: Address,
-  email: Email
+	phone: Phone,
+	address: Address,
+	email: Email
 }
 </script>
 
@@ -37,7 +37,7 @@ const componentsMap = {
         flex-direction: column;
         gap: rem(15);
 
-        &:deep(a) {            
+        &:deep(a) {
             align-items: center;
             display: inline-flex;
             gap: rem(5);

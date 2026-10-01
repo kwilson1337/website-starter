@@ -1,10 +1,10 @@
 <template>
     <div class="kw-socials">
         <div class="kw-socials__inner">
-            <component 
-                :is="componentsMap[item]" 
-                v-for="item in toInclude" 
-                :key="item" 
+            <component
+                :is="componentsMap[item]"
+                v-for="item in toInclude"
+                :key="item"
             />
         </div>
     </div>
@@ -16,16 +16,16 @@ import Instagram from './Instagram.vue';
 import LinkedIn from './LinkedIn.vue';
 
 const props = defineProps({
-    toInclude: {
-        type: Array,
-        default: () => ['facebook', 'instagram', 'linkedin']
-    }
+	toInclude: {
+		type: Array,
+		default: () => ['facebook', 'instagram', 'linkedin']
+	}
 })
 
 const componentsMap = {
-  facebook: Facebook,
-  instagram: Instagram,
-  linkedin: LinkedIn
+	facebook: Facebook,
+	instagram: Instagram,
+	linkedin: LinkedIn
 }
 </script>
 
@@ -33,10 +33,10 @@ const componentsMap = {
 .kw-socials {
 
     &__inner {
-        display: flex;        
+        display: flex;
         gap: rem(15);
 
-        &:deep(a) {            
+        &:deep(a) {
             align-items: center;
             display: flex;
             gap: rem(5);

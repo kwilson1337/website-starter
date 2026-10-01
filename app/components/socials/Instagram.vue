@@ -2,7 +2,7 @@
     <div class="kw-socials --instagram">
         <div class="kw-socials__inner">
             <NuxtLink :to="`${constants.useSocials().instagram}`" target="_blank">
-                <MdiIcon icon="mdiInstagram" />                
+                <MdiIcon icon="mdiInstagram" />
             </NuxtLink>
         </div>
     </div>

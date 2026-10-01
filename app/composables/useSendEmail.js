@@ -8,14 +8,18 @@ export const useSendEmail = () => {
 		firstName,
 		lastName,
 		email,
-		details
+		details,
+		honeypot
 	}) => {
+
+		if(honeypot) return
+
 		const transporter = nodemailer.createTransport({
 			host: 'smtp.resend.com',
 			secure: true,
 			port: 465,
-			auth: {				
-				user: 'resend',				
+			auth: {
+				user: 'resend',
 				pass: process.env.RESEND_API,
 			}
 		});
@@ -24,7 +28,7 @@ export const useSendEmail = () => {
 			await transporter.sendMail({
 				subject: `New inquiry from ${firstName} ${lastName}`,
 				from: 'New Submission <hello@contact.deeplydesigns.io>',
-				to: 'kylejaywilson123@gmail.com',
+				to: email,
 				replyTo: email,
 				html: `
                 <div>
