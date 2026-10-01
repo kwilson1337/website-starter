@@ -27,10 +27,10 @@ export const useConstants = () => {
 	}
 
 	const useAddressSchema = () => {
-		const { pretty, ...address } = appConfig.contactInfo.address
+		const omit = ['pretty']
 
 		return {
-			...address
+			...Object.fromEntries(Object.entries(appConfig.contactInfo.address).filter(([key]) => !omit.includes(key)))
 		}
 	}
 
@@ -48,7 +48,7 @@ export const useConstants = () => {
 
 	const renderSiteSchema = () => {
 		console.log('useAddressSchema' ,useAddressSchema())
-		
+
 		return useSchemaOrg([
 			defineLocalBusiness({
 				'@type': 'ProfessionalService', // pick the closest subtype from schema.org/LocalBusiness
@@ -84,7 +84,7 @@ export const useConstants = () => {
 					}
 				],
 				sameAs: [
-					Object.values(useSocials()),					
+					Object.values(useSocials()),
 				]
 			})
 		])
