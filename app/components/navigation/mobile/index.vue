@@ -3,7 +3,7 @@
     <Container>
       <div class="kw-mobile-navigation__inner">
         <div class="kw-mobile-navigation__logo">
-          <NuxtLink to="/" @click="toggleBurger">
+          <NuxtLink to="/" @click="closeBurger">
             <img :src="constants.websiteLogo().url" :alt="constants.websiteLogo().alt">
           </NuxtLink>
         </div>
@@ -48,6 +48,14 @@ const constants = useConstants()
 const menuOpen = ref(false)
 const openMenuTitle = ref(null)
 
+const closeBurger = () => {
+	menuOpen.value = false
+
+	if(!menuOpen.value) {
+		openMenuTitle.value = null
+		document.querySelector('html').style.overflow = 'unset'
+	}
+}
 const toggleBurger = () => {
 	menuOpen.value = !menuOpen.value
 
@@ -56,8 +64,7 @@ const toggleBurger = () => {
 	}
 
 	if(!menuOpen.value) {
-		openMenuTitle.value = null
-		document.querySelector('html').style.overflow = 'unset'
+		closeBurger()
 	}
 }
 

@@ -1,5 +1,11 @@
+import { defineLocalBusiness } from 'nuxt-schema-org/schema'
+
 export const useConstants = () => {
 	const appConfig = useAppConfig()
+
+	const getConfigByKey = (key) => {
+		return appConfig[key]
+	}
 
 	const websiteLogo = () => {
 		return appConfig.website.logo
@@ -16,7 +22,15 @@ export const useConstants = () => {
 	const userAddress = () => {
 		return {
 			link: appConfig.contactInfo.addressLink,
-			display: appConfig.contactInfo.address
+			display: appConfig.contactInfo.address.pretty
+		}
+	}
+
+	const useAddressSchema = () => {
+		const { pretty, ...address } = appConfig.contactInfo.address
+
+		return {
+			...address
 		}
 	}
 
@@ -32,12 +46,58 @@ export const useConstants = () => {
 		return appConfig.website.navigation
 	}
 
+	const renderSiteSchema = () => {
+		console.log('useAddressSchema' ,useAddressSchema())
+		
+		return useSchemaOrg([
+			defineLocalBusiness({
+				'@type': 'ProfessionalService', // pick the closest subtype from schema.org/LocalBusiness
+				name: getConfigByKey('siteInfo')?.name,
+				description: getConfigByKey('siteInfo')?.description,
+				url: getConfigByKey('siteInfo')?.url,
+				image: websiteLogo().url, //store front URL / possibly add
+				logo: websiteLogo().url,
+				telephone: userPhoneNumbers(),
+				email: userEmailAddress(),
+				priceRange: '$$',
+				address: {
+					streetAddress: useAddressSchema().streetAddress,
+					addressLocality: useAddressSchema().addressLocality,
+					addressRegion: useAddressSchema().addressRegion,
+					postalCode: useAddressSchema().postalCode,
+					addressCountry: 'US'
+				},
+				geo: {
+					latitude: 28.8,
+					longitude: -82.3
+				},
+				openingHoursSpecification: [
+					{
+						dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+						opens: '09:00',
+						closes: '17:00'
+					},
+					{
+						dayOfWeek: 'Saturday',
+						opens: '10:00',
+						closes: '14:00'
+					}
+				],
+				sameAs: [
+					Object.values(useSocials()),					
+				]
+			})
+		])
+	}
+
 	return {
 		websiteLogo,
 		userPhoneNumbers,
 		websiteNavigation,
 		userAddress,
 		userEmailAddress,
-		useSocials
+		useSocials,
+		renderSiteSchema,
+		getConfigByKey
 	}
 }
