@@ -34,7 +34,11 @@
                         :id="`submenu-${cleanId(link.title)}`"
                         class="kw-mobile-menu-recursive__sub-container"
                     >
-                        <MobileRecursiveMenu :navigation="link.subLinks" class="--sub" />
+                        <MobileRecursiveMenu
+                            class="--sub"
+                            :navigation="link.subLinks"
+                            @mobile-recursive-menu:close="emits('mobileRecursiveMenu:close')"
+                        />
                     </div>
                 </Transition>
             </div>

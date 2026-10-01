@@ -15,7 +15,7 @@ import Facebook from './Facebook.vue'
 import Instagram from './Instagram.vue';
 import LinkedIn from './LinkedIn.vue';
 
-const props = defineProps({
+defineProps({
 	toInclude: {
 		type: Array,
 		default: () => ['facebook', 'instagram', 'linkedin']

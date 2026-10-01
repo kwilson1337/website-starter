@@ -15,7 +15,7 @@ import Phone from './Phone.vue'
 import Address from './Address.vue';
 import Email from './Email.vue';
 
-const props = defineProps({
+defineProps({
 	toInclude: {
 		type: Array,
 		default: () => ['phone', 'address', 'email']

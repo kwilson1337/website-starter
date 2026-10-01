@@ -8,7 +8,7 @@ export default defineNuxtConfig({
 			routes: ['/']
 		}
 	},
-	
+
 	app: {
 		head: {
 			title: 'Deeply Designs',
