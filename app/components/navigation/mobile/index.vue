@@ -52,16 +52,11 @@ const closeBurger = () => {
 	menuOpen.value = false
 
 	if(!menuOpen.value) {
-		openMenuTitle.value = null
-		document.querySelector('html').style.overflow = 'unset'
+		openMenuTitle.value = null		
 	}
 }
 const toggleBurger = () => {
 	menuOpen.value = !menuOpen.value
-
-	if(menuOpen.value) {
-		document.querySelector('html').style.overflow = 'hidden'
-	}
 
 	if(!menuOpen.value) {
 		closeBurger()
