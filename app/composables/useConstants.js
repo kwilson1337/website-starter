@@ -12,17 +12,17 @@ export const useConstants = () => {
 	}
 
 	const userPhoneNumbers = () => {
-		return appConfig.contactInfo.phone
+		return appConfig.businessInfo.phone
 	}
 
 	const userEmailAddress = () => {
-		return appConfig.contactInfo.email
+		return appConfig.businessInfo.email
 	}
 
 	const userAddress = () => {
 		return {
-			link: appConfig.contactInfo.addressLink,
-			display: appConfig.contactInfo.address.pretty
+			link: appConfig.businessInfo.addressLink,
+			display: appConfig.businessInfo.address.pretty
 		}
 	}
 
@@ -30,7 +30,7 @@ export const useConstants = () => {
 		const omit = ['pretty']
 
 		return {
-			...Object.fromEntries(Object.entries(appConfig.contactInfo.address).filter(([key]) => !omit.includes(key)))
+			...Object.fromEntries(Object.entries(appConfig.businessInfo.address).filter(([key]) => !omit.includes(key)))
 		}
 	}
 
@@ -47,8 +47,6 @@ export const useConstants = () => {
 	}
 
 	const renderSiteSchema = () => {
-		console.log('useAddressSchema' ,useAddressSchema())
-
 		return useSchemaOrg([
 			defineLocalBusiness({
 				'@type': 'ProfessionalService', // pick the closest subtype from schema.org/LocalBusiness
@@ -59,7 +57,7 @@ export const useConstants = () => {
 				logo: websiteLogo().url,
 				telephone: userPhoneNumbers(),
 				email: userEmailAddress(),
-				priceRange: '$$',
+				priceRange: getConfigByKey('businessInfo').priceRange,
 				address: {
 					streetAddress: useAddressSchema().streetAddress,
 					addressLocality: useAddressSchema().addressLocality,
@@ -67,22 +65,8 @@ export const useConstants = () => {
 					postalCode: useAddressSchema().postalCode,
 					addressCountry: 'US'
 				},
-				geo: {
-					latitude: 28.8,
-					longitude: -82.3
-				},
-				openingHoursSpecification: [
-					{
-						dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-						opens: '09:00',
-						closes: '17:00'
-					},
-					{
-						dayOfWeek: 'Saturday',
-						opens: '10:00',
-						closes: '14:00'
-					}
-				],
+				geo: getConfigByKey('businessInfo').geo,
+				openingHoursSpecification: getConfigByKey('businessInfo').workHours,
 				sameAs: [
 					Object.values(useSocials()),
 				]

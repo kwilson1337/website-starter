@@ -4,10 +4,22 @@ export default defineAppConfig({
 		description: 'A web design studio in Orlando FL',
 		url: 'https://deeplydesigns.io/'
 	},
-	contactInfo: {
+	businessInfo: {
+		workHours: [
+			{
+				dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+				opens: '09:00',
+				closes: '17:00'
+			},
+			{
+				dayOfWeek: 'Saturday',
+				opens: '10:00',
+				closes: '14:00'
+			}
+		],
+		priceRange: '$',
 		email: 'hello@example.com',
 		phone: '+1 (555) 019-2834',
-		// address: '2922 Rouen Ave Winterpark, FL 32789',
 		address: {
 			pretty: '2922 Rouen Ave Winterpark, FL 32789',
 			streetAddress: '2922 Rouen Ave',
@@ -17,7 +29,10 @@ export default defineAppConfig({
 			addressCountry: ''
 		},
 		addressLink: 'https://www.google.com/maps/place/2922+Rouen+Ave,+Winter+Park,+FL+32789/@28.6271846,-81.335033,17z/data=!3m1!4b1!4m6!3m5!1s0x88e76fd33d57fab9:0xac4bdf149cc34675!8m2!3d28.6271846!4d-81.3324527!16s%2Fg%2F11c137s2gt?entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D',
-		hours: 'Mon-Fri, 9am - 5pm'
+		geo: {
+			latitude: 28.8,
+			longitude: -82.3
+		},
 	},
 	socials: {
 		instagram: 'https://www.instagram.com/',
