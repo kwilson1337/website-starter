@@ -83,7 +83,12 @@
                             <LoadingAnimation />
                         </div>
 
-                        <p v-if="responseMessage" @click="responseMessage = ''">{{ responseMessage }}</p>
+                        <p v-if="responseMessage">
+                            <button type="button" aria-label="Dismiss message" @click="responseMessage = ''">
+                                <MdiIcon icon="mdiClose" />
+                            </button>
+                            {{ responseMessage }}
+                        </p>
                     </div>
                 </div>
             </form>
@@ -190,6 +195,22 @@ const sendMail = async () => {
                 padding: rem(8) rem(16);
                 background-color: $color2;
                 border-radius: rem(20);
+                position: relative;
+
+                button {
+                    position: absolute;
+                    top: rem(-5);
+                    right: rem(-5);
+                    width: rem(25);
+                    height: rem(25);
+                    background-color: $white;
+                    border-radius: 50%;
+                    border: 1px solid $color3;
+                    color: $black;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
             }
         }
     }

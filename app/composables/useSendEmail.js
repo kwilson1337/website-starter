@@ -25,7 +25,7 @@ export const useSendEmail = () => {
 		});
 
 		try {
-			await transporter.sendMail({
+			const sendEmail = await transporter.sendMail({
 				subject: `New inquiry from ${firstName} ${lastName}`,
 				from: 'New Submission <hello@contact.deeplydesigns.io>',
 				to: email,
@@ -38,6 +38,9 @@ export const useSendEmail = () => {
                 </div>
                 `
 			})
+
+			return sendEmail
+
 		} catch(error) {
 			errors.value.push(error)
 		}
