@@ -13,7 +13,7 @@
             <div class="kw-card__body">
                 <slot />
             </div>
-        </div>        
+        </div>
 
         <div v-if="$slots.footer" class="kw-card__footer">
             <slot name="footer" />
@@ -36,7 +36,7 @@ defineProps({
 <style lang="scss" scoped>
 .kw-card {
     background-color: $white;
-    border-radius: $border-radius;    
+    border-radius: $border-radius;
     display: flex;
     flex-direction: column;
     border: 1px solid $color3;
