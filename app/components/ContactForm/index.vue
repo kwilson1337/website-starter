@@ -169,11 +169,11 @@ const sendMail = async () => {
     }
 
     &__row {
-        display: flex;
-        gap: rem(20);
+        @include auto-grid(200px, 1fr);
+        gap: rem(10);
 
         & + .kw-contact-form__row {
-            margin-top: rem(20);
+            margin-top: rem(10);
         }
 
         textarea {
