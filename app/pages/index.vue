@@ -12,7 +12,17 @@
 
   <Section>
     <div class="cards">
-      <Card v-for="num in 5" :key="num" />
+      <Card v-for="num in 5" :key="num">
+        <template #header>
+          Card
+        </template>
+
+        This is some description.
+
+        <template #footer>
+          <Link to="/" class="--button2">Home</Link>
+        </template>
+      </Card>
     </div>
   </Section>
 </template>
@@ -21,6 +31,7 @@
 import Card from '@/components/cards'
 import Banner from '@/components/banner'
 import Section from '@/components/section'
+import Link from '@/components/Links'
 
 useHead({
 	title: 'My home page',

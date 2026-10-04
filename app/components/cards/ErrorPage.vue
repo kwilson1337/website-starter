@@ -23,7 +23,7 @@
 
 <script setup>
 import Link from '@/components/Links'
-import Card from './Card.vue'
+import Card from './index.vue'
 
 defineProps({
 	card: { type: Object, required: true },
