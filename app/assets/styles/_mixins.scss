@@ -44,9 +44,7 @@ $bp: (
 @mixin auto-grid($min-width: 250px, $gap: 1.5rem) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(#{$min-width}, 100%), 1fr));
-  gap: $gap;
-
-  // grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+  gap: $gap;  
 }
 
 @mixin box-shadow($color: $color4) {

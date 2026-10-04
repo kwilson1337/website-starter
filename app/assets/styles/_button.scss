@@ -8,7 +8,7 @@
     align-items: center;
     gap: rem(5);
     border: none;
-    font-family: $font1;
+    font-family: $font1;    
 
     @include mq('sm') {
         display: block;
@@ -30,10 +30,13 @@
     }
 
     &.--button2 {
-        border: 1px solid rgba($color3, .3);
+        border: 1px solid rgba($color3, 1);
+        color: $color3;
         
         &:hover {
-            background-color: rgba($color3, .3);
+            border-color: $color4;
+            background-color: $color4;
+            color: $white;
         }
     }
 

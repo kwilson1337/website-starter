@@ -3,22 +3,22 @@
         v-bind="$attrs"
         class="kw-button"
     >
-        <slot></slot>
-        <MdiIcon v-if="icon" :icon="icon" />                
-    </NuxtLink>   
+        <slot/>
+        <MdiIcon v-if="icon" :icon="icon" />
+    </NuxtLink>
 </template>
 
 <script setup>
 defineProps({
-    iconPlacement: {
-        type: String,
-        default: 'RIGHT',
-        validator: (value) => ['LEFT', 'RIGHT'].includes(value)
-    },
-    icon: {
-        type: String,
-        default: ''
-    }
+	iconPlacement: {
+		type: String,
+		default: 'RIGHT',
+		validator: (value) => ['LEFT', 'RIGHT'].includes(value)
+	},
+	icon: {
+		type: String,
+		default: ''
+	}
 })
 </script>
 
