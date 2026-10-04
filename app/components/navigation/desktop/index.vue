@@ -46,7 +46,7 @@ const blurLinkOnClick = ($event) => {
 .kw-desktop-nav {
     position: sticky;
     top: 0px;
-    background-color: $color2;
+    background-color: $color3;
     padding: rem(15) 0px;
     z-index: 100;
 
@@ -94,7 +94,7 @@ const blurLinkOnClick = ($event) => {
         &:hover,
         &:focus-within {
             > a {
-                color: $color4;
+                color: $color2;
 
                 svg {
                     transform: rotate(180deg);

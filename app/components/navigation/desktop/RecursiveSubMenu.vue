@@ -44,7 +44,6 @@ const blurLinkOnClick = ($event) => {
     min-width: rem(150);
     visibility: hidden;
     opacity: 0;
-    transition: $transition;
     border-radius: $border-radius;
     z-index: 100;
 

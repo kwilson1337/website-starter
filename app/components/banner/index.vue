@@ -22,7 +22,7 @@ import Section from '@/components/section'
     .kw-banner {
         background-position: center;
         min-height: 75vh;
-        background-color: $color3;
+        background-color: $color2;
         display: flex;
         align-items: center;
         justify-content: center;
