@@ -52,7 +52,7 @@ const closeBurger = () => {
 	menuOpen.value = false
 
 	if(!menuOpen.value) {
-		openMenuTitle.value = null		
+		openMenuTitle.value = null
 	}
 }
 const toggleBurger = () => {

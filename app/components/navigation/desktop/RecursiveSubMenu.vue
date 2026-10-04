@@ -6,7 +6,7 @@
                 :key="link.title"
                 class="recusive-sub-menu__sub-link"
             >
-                <NuxtLink :to="link.url">
+                <NuxtLink :to="link.url" @click="blurLinkOnClick">
                     {{ link.title }}
                     <MdiIcon v-if="link.subLinks" icon="mdiChevronDown" />
                 </NuxtLink>
@@ -30,6 +30,10 @@ defineProps({
 		default: false
 	}
 })
+
+const blurLinkOnClick = ($event) => {
+	$event.currentTarget.blur()
+}
 </script>
 
 <style lang="scss">

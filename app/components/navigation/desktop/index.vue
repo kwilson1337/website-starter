@@ -12,6 +12,7 @@
                         <div class="kw-desktop-nav__top-link">
                             <NuxtLink
                                 :to="link.url"
+                                @click="blurLinkOnClick"
                             >
                                 {{link.title}}
                                 <MdiIcon v-if="link.subLinks" icon="mdiChevronDown" />
@@ -35,6 +36,10 @@ import RecursiveSubMenu from './RecursiveSubMenu.vue';
 import { useConstants } from '@/composables/useConstants.js';
 
 const constants = useConstants()
+
+const blurLinkOnClick = ($event) => {
+	$event.currentTarget.blur()
+}
 </script>
 
 <style lang="scss" scoped>

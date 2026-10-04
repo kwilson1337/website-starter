@@ -1,5 +1,10 @@
 import { useSendEmail } from '@/composables/useSendEmail'
 
+const RESPONSE_MESSAGES = {
+	SUCCESS: 'Email was sent successfully. We will get back to you as soon as possible.',
+	ERROR: 'Failed to send email. Please try again later.'
+}
+
 export default defineEventHandler(async (event) => {
 	const body = await readBody(event)
 	const { formatEmail } = useSendEmail()
@@ -16,13 +21,13 @@ export default defineEventHandler(async (event) => {
 			return {
 				statusCode: 200,
 				success: true,
-				statusMessage: 'Email was sent successfully. We will get back to you as soon as possible.'
+				statusMessage: RESPONSE_MESSAGES.SUCCESS
 			}
 		} else {
 			throw createError({
 				statusCode: 500,
 				success: false,
-				statusMessage: 'Failed to send email. Please try again'
+				statusMessage: RESPONSE_MESSAGES.ERROR
 			})
 		}
 
@@ -30,7 +35,7 @@ export default defineEventHandler(async (event) => {
 		throw createError({
 			statusCode: 500,
 			success: false,
-			statusMessage: 'Failed to send email. Please try again',
+			statusMessage: RESPONSE_MESSAGES.ERROR,
 			errorMessage: error.message
 		})
 	}
