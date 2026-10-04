@@ -6,7 +6,7 @@
                     &#169; {{ currentYear }}
                 </div>
                 <div class="kw-copy-write-bar__col --right">
-                    Made with <MdiIcon icon="mdiHeart" /> by <NuxtLink target="_blank" to="https://deeplydesigns.io/">DeeplyDesigns</NuxtLink>
+                    Made with <MdiIcon icon="mdiHeart" /> in Orlando by <NuxtLink target="_blank" to="https://deeplydesigns.io/">DeeplyDesigns</NuxtLink>
                 </div>
             </div>
         </Container>
@@ -27,6 +27,7 @@ const currentYear = new Date().getFullYear();
         justify-content: space-between;
         align-items: center;
         padding: rem(10) 0px;
+        font-size: rem(12);
     }
 
     svg {
@@ -35,6 +36,10 @@ const currentYear = new Date().getFullYear();
 
     a {
         color: $white;
+
+        &:hover {
+            color: $color2;
+        }
     }
 }
 </style>
