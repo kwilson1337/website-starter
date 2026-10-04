@@ -8,7 +8,13 @@
                 </div>
 
                 <div class="kw-error-page__actions">
-                    <a href="/" class="kw-button --button4">home <MdiIcon icon="mdiArrowRightBold" /></a>
+                    <Button 
+                        class="--button4" 
+                        to="/" 
+                        icon="mdiArrowRightBold"
+                    >
+                        Home
+                    </Button>                    
                 </div>
             </div>
         </Section>
@@ -17,6 +23,7 @@
 
 <script setup>
 import Section from '@/components/section'
+import Button from '@/components/links'
 </script>
 
 <style lang="scss" scoped>

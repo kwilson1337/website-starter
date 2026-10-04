@@ -86,7 +86,7 @@ export default defineAppConfig({
 							}
 						]
 					},
-					{ title: 'Home', url: '/' } ]
+					{ title: 'Home', url: '/hello' } ]
 			}
 		]
 	}
