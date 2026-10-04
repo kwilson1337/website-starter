@@ -97,7 +97,7 @@
 </template>
 
 <script setup>
-import LoadingAnimation from '@/components/LoadingAnimation'
+import LoadingAnimation from '@/components/loading-animation'
 
 const formFields = ref({
 	firstName: '',

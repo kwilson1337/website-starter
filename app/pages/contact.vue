@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import ContactForm from '@/components/ContactForm'
+import ContactForm from '@/components/contact-form'
 import Section from '@/components/section'
 import ContactInfo from '@/components/contact-info'
 import Socials from '@/components/socials'
